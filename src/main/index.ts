@@ -15,17 +15,6 @@ const createWindow = () => {
         console.error(`ERROR: ${e.message}`)
     })
 
-    win.webContents.on('did-finish-load', () => {
-        win.webContents.send('loaded', {
-            appName: 'Application',
-            electronVersion: process.versions.electron,
-            nodeVersion: process.versions.node,
-            chromiumVersion: process.versions.chrome,
-        })
-    })
-
-    win.webContents.openDevTools()
-
     win.on('closed', () => {
         win = null
     })

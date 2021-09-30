@@ -1,8 +1,8 @@
 // https://electronjs.org/docs/tutorial/security
-import { contextBridge, ipcRenderer } from 'electron'
+import { contextBridge } from 'electron'
 
-contextBridge.exposeInMainWorld('MessagesAPI', {
-    onLoaded: (callback) => {
-        ipcRenderer.on('loaded', callback)
+contextBridge.exposeInMainWorld('electron', {
+    test: () => {
+        console.log('test')
     },
 })
